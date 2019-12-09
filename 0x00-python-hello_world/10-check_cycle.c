@@ -9,7 +9,8 @@ int check_cycle(listint_t *head)
 {
 listint_t *next;
 
-next = malloc(sizeof(listint_t));
+if (!head)
+return (0);
 next = head->next;
 while (next != NULL && next != head)
 next = next->next;
