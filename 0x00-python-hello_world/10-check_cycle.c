@@ -8,13 +8,10 @@
 int check_cycle(listint_t *head)
 {
 listint_t *next;
-int i;
+
+next = malloc(sizeof(listint_t));
 next = head->next;
 while (next != NULL && next != head)
 next = next->next;
 return (next == head);
-i = next == head;
-free(head);
-free(next);
-return (i);
 }
