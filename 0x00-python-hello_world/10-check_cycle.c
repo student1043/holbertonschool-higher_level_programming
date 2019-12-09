@@ -5,14 +5,14 @@
  * @head: pointer to list to be freed
  * Return: 0 if has no cycle or 1 if has cycle
  */
-int check_cycle(listint_t *head)
+int check_cycle(listint_t *list)
 {
 listint_t *next;
 
-if (!head)
+if (!list || list->next == NULL)
 return (0);
-next = head->next;
-while (next != NULL && next != head)
+next = list->next;
+while (next != NULL && next != list)
 next = next->next;
-return (next == head);
+return (next == list);
 }
