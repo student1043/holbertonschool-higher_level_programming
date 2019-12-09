@@ -7,12 +7,17 @@
  */
 int check_cycle(listint_t *list)
 {
-listint_t *next;
+listint_t *curr = list;
+listint_t *next = list;
 
 if (!list || list->next == NULL)
 return (0);
-next = list->next;
-while (next != NULL && next != list)
-next = next->next;
-return (next == list);
+while (curr && next && next->next && curr->next->next)
+{
+curr = curr->next;
+next = next->next->next;
+if (curr == next)
+return (1);
+}
+return (0);
 }
