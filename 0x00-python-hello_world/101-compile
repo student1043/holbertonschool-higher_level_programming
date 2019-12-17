@@ -1,4 +1,3 @@
 #!/bin/bash
 python3 $PYFILE
-python -m compileall .
-python exit()
+python -m compileall . | echo "exit()"
