@@ -27,20 +27,18 @@ class Square:
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
-    
+
     @property
     def position(self):
         """This is a definition"""
         return self.__postition
-    
+
     @position.setter
     def position(self, value):
         """This is a definition"""
-        self.__postition = value
-        if not isinstance(value, int):
+        self.__postition = value()
+        if not isinstance(value, tuple):
             raise TypeError("position must be a tuple of 2 positive integers")
-        if value < 0:
-            raise ValueError("size must be >= 0")
 
     def my_print(self):
         """This is a definition"""
@@ -50,3 +48,7 @@ class Square:
             print()
         if self.__size == 0:
             print()
+        if self.__postition[1] > 0:
+            print()
+        else:
+            print(" ")
