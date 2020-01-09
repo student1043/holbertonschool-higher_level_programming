@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 class Square:
     """This is a square class"""
-    def __init__(self, size=0, position=(0, 0)):
+    def __init__(self, size=0):
         """This is a definition"""
         self.__size = size
-        self.__postition = position
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         if size < 0:
@@ -28,25 +27,26 @@ class Square:
         if value < 0:
             raise ValueError("size must be >= 0")
 
-    @property
-    def position(self):
+    def __eq__(self, other):
         """This is a definition"""
-        return self.__postition
+        return self.__size == other.__size
 
-    @position.setter
-    def position(self, value):
+    def __ne__(self, other):
         """This is a definition"""
-        self.__postition = value()
-        if not isinstance(value, tuple):
-            raise TypeError("position must be a tuple of 2 positive integers")
+        return self.__size != other.__size
 
-    def my_print(self):
+    def __lt__(self, other):
         """This is a definition"""
-        for i in range(self.__size):
-            for i in range(self.__size):
-                print("#", end="")
-            print()
-        if self.__size == 0:
-            print()
-        if self.__postition[1] > 0:
-            print(" ")
+        return self.__size < other.__size
+
+    def __le__(self, other):
+        """This is a definition"""
+        return self.__size <= other.__size
+
+    def __gt__(self, other):
+        """This is a definition"""
+        return self.__size > other.__size
+
+    def __ge__(self, other):
+        """This is a definition"""
+        return self.__size >= other.__size
