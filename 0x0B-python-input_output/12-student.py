@@ -16,13 +16,11 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-
-
     def to_json(self, attrs=None):
         """
             Class to JSON
         """
-        if attrs != None:
+        if attrs is not None:
             dic = {}
             for i in attrs:
                 if i in self.__dict__:

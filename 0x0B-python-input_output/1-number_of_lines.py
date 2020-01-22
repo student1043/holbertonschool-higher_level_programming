@@ -10,6 +10,6 @@ def number_of_lines(filename=""):
     """
     count = 0
     with open(filename) as num:
-        for count, l in enumerate(num, start = 1):
+        for count, l in enumerate(num, start=1):
             pass
     return count
