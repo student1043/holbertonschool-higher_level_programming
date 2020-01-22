@@ -1,18 +1,24 @@
 #!/usr/bin/python3
 import json
-import sys
 import os
 loadmedaddy = __import__('8-load_from_json_file').load_from_json_file
 savemedaddy = __import__('7-save_to_json_file').save_to_json_file
 
+"""
+Save the arguments to the JSON file add_item.json
+"""
+
+
 filename = "add_item.json"
 try:
-    object = loadmedaddy(filename)
+    list = loadmedaddy(filename)
 except:
-    savemedaddy([], filename)
-list = []
-for i in range(len(os.sys.argv)):
-    if i == 0:
-        continue
-    list.append(os.sys.argv[i])
-savemedaddy(list, filename)
+    with open(filename, mode= 'w', encoding='UTF8') as pr:
+        pr.write('')
+        list = []
+if len(os.sys.argv) == 1:
+    savemedaddy(list, filename)
+else:
+    for i in range(1, len(os.sys.argv)):
+        list.append(os.sys.argv[i])
+    savemedaddy(list, filename)
