@@ -64,3 +64,26 @@ class Base:
                 return list
         except:
             return []
+    
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ save to file csv """
+        list = []
+        if list_objs is not None:
+            for i in list_objs:
+                list.append(i.to_dictionary())
+        with open(cls.__name__ + ".csv", "w") as file:
+            file.write(cls.to_json_string(list))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ load from file """
+        try:
+            with open(cls.__name__ + ".csv", "r") as file:
+                pr = cls.from_json_string(file.read())
+                list = []
+                for i in pr:
+                    list.append(cls.create(**i))
+                return list
+        except:
+            return []
