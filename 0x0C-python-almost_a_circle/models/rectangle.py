@@ -75,8 +75,12 @@ class Rectangle(Base):
 
     def display(self):
         """ Display Rectangle Instance """
+        for i in range(self.__y):
+            print()
         for i in range(self.__height):
-            for j in range(self.__width):
+            for i in range(self.__x):
+                print(" ", end="")
+            for i in range(self.__width):
                 print("#", end="")
             print()
 
