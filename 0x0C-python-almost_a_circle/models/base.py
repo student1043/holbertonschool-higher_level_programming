@@ -41,3 +41,13 @@ class Base:
         if json_string is None or not json_string:
             return list
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ Create """
+        if cls.__name__ == "Square":
+            tip = cls(10)
+        elif cls.__name__ == "Rectangle":
+            tip = cls(10, 10)
+        tip.update(**dictionary)
+        return tip
