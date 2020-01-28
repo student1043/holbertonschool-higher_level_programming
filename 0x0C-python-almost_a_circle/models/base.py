@@ -51,3 +51,16 @@ class Base:
             tip = cls(10, 10)
         tip.update(**dictionary)
         return tip
+
+    @classmethod
+    def load_from_file(cls):
+        """ load from file """
+        try:
+            with open(cls.__name__ + ".json", "r") as file:
+                pr = cls.from_json_string(file.read())
+                list = []
+                for i in pr:
+                    list.append(cls.create(**i))
+                return list
+        except:
+            return []
