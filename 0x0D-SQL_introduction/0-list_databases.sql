@@ -1,2 +1,2 @@
 -- Task 0
-show databases;
+SHOW DATABASES;
