@@ -1,2 +1,2 @@
 -- Task 5: show table description
-SELECT * FROM CREATE first_table;
+SHOW CREATE TABLE first_table;
