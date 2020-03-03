@@ -1,3 +1,3 @@
 -- Task 9: all cities and states
 -- Second Line
-SELECT id, name, states.name FROM cities WHERE state_id= (SELECT id FROM states) ORDER BY id ASC;
+SELECT cities.id, cities.name, states.name FROM cities JOIN states ON cities.state.id=states.id ORDER BY id ASC;
