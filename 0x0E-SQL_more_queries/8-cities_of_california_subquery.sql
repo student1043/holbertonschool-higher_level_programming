@@ -1,4 +1,3 @@
 -- Task 8: List all cities of California
 -- Second Line
-USE hbtn_0d_usa;
-SELECT id, name FROM states ORDER BY cities.id ASC;
+SELECT id, name FROM cities WHERE state_id= (SELECT id FROM states WHERE name='California') ORDER BY id ASC;
