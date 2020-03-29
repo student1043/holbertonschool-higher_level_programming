@@ -15,6 +15,9 @@ if __name__ == "__main__":
     session = Session()
     states = session.query(State).filter(State.name.contains(sys.argv[4]))\
                                  .all()
-    for state in states:
-        print("{}".format(state.id))
+    if not states:
+        print("Not found")
+    else:
+        for state in states:
+            print("{}".format(state.id))
     session.close()
