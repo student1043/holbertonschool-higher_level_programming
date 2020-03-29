@@ -8,7 +8,8 @@ if __name__ == "__main__":
                              passwd=sys.argv[2], host="localhost",
                              db=sys.argv[3])
     cursor = engine.cursor()
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    cursor.execute("SELECT name, id
+                   FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
     query = cursor.fetchall()
     for row in query:
         print(row)
