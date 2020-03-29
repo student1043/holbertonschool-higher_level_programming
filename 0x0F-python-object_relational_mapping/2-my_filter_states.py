@@ -8,8 +8,8 @@ if __name__ == "__main__":
                              passwd=sys.argv[2], host="localhost",
                              db=sys.argv[3])
     cursor = engine.cursor()
-    cursor.execute("SELECT * FROM states WHERE name LIKE '{}' ORDER BY id ASC".
-                   format(sys.argv[4]))
+    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY \
+    id ASC".format(sys.argv[4]))
     query = cursor.fetchall()
     for row in query:
         print(row)
