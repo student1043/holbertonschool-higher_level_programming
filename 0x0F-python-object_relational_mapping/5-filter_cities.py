@@ -14,10 +14,13 @@ if __name__ == "__main__":
     cursor = engine.cursor()
     cursor.execute(execution)
     query = cursor.fetchall()
-    for row in query:
-        for col in row:
-            if len(row) != len(query):
-                print("{}, ".format(col), end="")
-            print()
+    if len(query) == 0:
+        print()
+    else:
+        for i in range(len(query)):
+            if i == len(query) - 1:
+                print(query[i][0])
+            else:
+                print("{}, ".format(query[i][0]), end="")
     cursor.close()
     engine.close()
