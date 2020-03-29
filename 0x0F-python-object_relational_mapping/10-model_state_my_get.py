@@ -14,10 +14,10 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     states = session.query(State).filter(State.name.contains(sys.argv[4]))\
-                                 .first()
-    if not states:
-        print("Not found")
-    else:
+                                 .all()
+    try:
         for state in states:
             print("{}".format(state.id))
+    except IndexError:
+        print("Not found")
     session.close()
