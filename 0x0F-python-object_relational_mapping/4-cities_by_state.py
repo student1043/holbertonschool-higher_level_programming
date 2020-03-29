@@ -7,8 +7,11 @@ if __name__ == "__main__":
     engine = MySQLdb.connect(user=sys.argv[1],
                              passwd=sys.argv[2], host="localhost",
                              db=sys.argv[3])
-    execution = """SELECT id FROM states INNER JOIN cities ON \
-                  states.id=cities.states_id ORDER BY id ASC"""
+    execution = "SELECT \
+    cities.id, cities.name, states.name FROM states \
+    RIGHT JOIN cities ON \
+    states.id = cities.state_id \
+    ORDER BY id ASC"
     cursor = engine.cursor()
     cursor.execute(execution)
     query = cursor.fetchall()
