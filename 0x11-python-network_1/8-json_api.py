@@ -4,7 +4,7 @@ import sys
 """ Requests """
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     """ Requests """
     url = "http://0.0.0.0:5000/search_user"
     if len(sys.argv) > 1:
