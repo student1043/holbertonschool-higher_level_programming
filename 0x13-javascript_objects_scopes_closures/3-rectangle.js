@@ -9,16 +9,12 @@ class Rectangle {
   }
 
   print () {
-    let str = '';
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
-        str += 'X' + '';
+        process.stdout.write('X');
       }
-      if (i < this.width) {
-        str += '\n';
-      }
+      process.stdout.write('\n');
     }
-	console.log(str);
   }
 }
 module.exports = Rectangle;
