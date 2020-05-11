@@ -17,8 +17,8 @@ class Rectangle {
       if (i < this.width) {
         str += '\n';
       }
+      console.log(str);
     }
-    console.log(str);
   }
 }
 module.exports = Rectangle;
