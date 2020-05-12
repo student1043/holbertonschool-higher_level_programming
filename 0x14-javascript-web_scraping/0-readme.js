@@ -1,4 +1,9 @@
 #!/usr/bin/node
 const fs = require('fs');
-const content = fs.readFileSync(process.argv[2], 'utf8');
-console.log(content);
+fs.readFile(process.argv[2], 'utf8', function read (err, data) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
+});
