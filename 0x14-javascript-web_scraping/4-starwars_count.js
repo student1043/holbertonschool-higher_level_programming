@@ -4,8 +4,14 @@ const request = require('request');
 request(process.argv[2], function (error, response, body) {
 	if (error) {
 		console.log(error);
-	  }
-	const userdata = JSON.parse(body);
-	const uname = userdata.characters;
-	console.log(uname);
+	} else {
+		const mylist = JSON.parse(body).results;
+		let number = 0;
+		for (const movie of mylist) {
+			if (movie.characters.find(item => item.includes('/api/people/18/'))) {
+				number++;
+			}
+		}
+		console.log(number);
+	}
 });
