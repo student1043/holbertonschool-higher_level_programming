@@ -8,7 +8,7 @@ request(url, function (error, response, body) {
 });
 
 function printChars (characters, index) {
-  request(chars[index], function (error, response, body) {
+  request(characters[index], function (error, response, body) {
     if (error) throw error;
     console.log(JSON.parse(body).name);
     if (index + 1 < characters.length) {
