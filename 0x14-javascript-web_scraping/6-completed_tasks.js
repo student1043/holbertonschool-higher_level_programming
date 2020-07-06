@@ -1,8 +1,8 @@
 #!/usr/bin/node
 const request = require('request');
-const link = process.argv[2];
+const url = process.argv[2];
 const completed = {};
-request(link, function (error, response, body) {
+request(url, function (error, response, body) {
   if (error) throw error;
   const data = JSON.parse(body);
   for (let i = 0; i < data.length; i++) {
